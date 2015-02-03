@@ -22,16 +22,20 @@ remote_file "/usr/bin/goiardi" do
   mode "0755"
 end
 
-directory node[:goiardi][:rundir] do
-  mode "0700"
+directory node[:goiardi][:confdir] do
+  mode "0755"
   owner "root"
   group "root"
+  recursive true
 end
 
-directory "#{node[:goiardi][:rundir]}/file_checksums" do
-  mode "0700"
-  owner "root"
-  group "root"
+%i{ lfsdir rundir }.each do |d|
+  directory node[:goiardi][d] do
+    mode "0700"
+    owner "root"
+    group "root"
+    recursive true
+  end
 end
 
 template node[:goiardi][:config] do
