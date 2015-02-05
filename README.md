@@ -1,25 +1,38 @@
 # goiardi-cookbook
 
-TODO: Enter the cookbook description here.
+Installs and configures [Goiardi](http://goiardi.gl).
 
 ## Supported Platforms
 
-TODO: List your supported platforms.
+* Ubuntu 12.04
+* Ubuntu 14.04
 
 ## Attributes
 
 <table>
   <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
+    <td><tt>[:goiardi][:version]</tt></td>
+    <td>String</td>
+    <td>Goiardi version to install</td>
+    <td><tt>0.9.0</tt></td>
   </tr>
   <tr>
-    <td><tt>['goiardi']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
+    <td><tt>[:goiardi][:arch]</tt></td>
+    <td>String</td>
+    <td>Goiardi only runs on amd64</td>
+    <td><tt>amd64</tt></td>
+  </tr>
+  <tr>
+    <td><tt>[:goiardi][:confdir]</tt></td>
+    <td>String</td>
+    <td>Goiardi configuration directory</td>
+    <td><tt>/etc/goiardi</tt></td>
+  </tr>
+  <tr>
+    <td><tt>[:goiardi][:rundir]</tt></td>
+    <td>String</td>
+    <td>Goiardi state directory</td>
+    <td><tt>0.9.0</tt></td>
   </tr>
 </table>
 
