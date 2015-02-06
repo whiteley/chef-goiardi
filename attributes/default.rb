@@ -31,3 +31,6 @@ default[:goiardi][:hostname]  = node[:hostname]
 default[:goiardi][:freezeint] = "10"
 default[:goiardi][:objsize]   = "10485760"
 default[:goiardi][:jsonsize]  = "1000000"
+default[:goiardi][:logfile]   = nil
+default[:goiardi][:syslog]    = true
+default[:goiardi][:loglevel]  = "critical"

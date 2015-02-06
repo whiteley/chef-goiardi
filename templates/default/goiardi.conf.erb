@@ -8,6 +8,19 @@ port = <%= @port %>
 # client
 hostname = "<%= @hostname %>"
 
+# You can use log-file, syslog, or neither, but you cannot use both
+<% if @logfile %>
+# Where to send log data instead of stdout
+log-file = "<%= @logfile %>"
+<% else %>
+# Or log to syslog
+syslog = <%= @syslog %>
+<% end %>
+
+# Log level. Options are "debug", "info", "warning", "error", and "critical".
+# May be specified on the command line with one or more -V flags.
+log-level = "<%= @loglevel %>"
+
 # If these two options are both set, goiardi will save the data store and index
 # data to disk. It will cause an error to only set one of the options
 index-file = "<%= @rundir %>/goiardi-index.bin"

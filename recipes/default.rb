@@ -50,6 +50,9 @@ template node[:goiardi][:config] do
     :rundir => node[:goiardi][:rundir],
     :freezeint => node[:goiardi][:freezeint],
     :objsize => node[:goiardi][:objsize],
-    :jsonsize => node[:goiardi][:jsonsize]
+    :jsonsize => node[:goiardi][:jsonsize],
+    :logfile => node[:goiardi][:logfile],
+    :syslog => node[:goiardi][:syslog],
+    :loglevel => node[:goiardi][:loglevel]
   })
 end
