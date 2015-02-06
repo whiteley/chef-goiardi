@@ -44,9 +44,12 @@ template node[:goiardi][:config] do
   owner "root"
   group "root"
   variables({
-    :store => node[:goiardi][:rundir],
-    :objsize => 104857600,
-    :jsonsize => 104857600,
-    :freezeint => 300
+    :ipaddress => node[:goiardi][:ipaddress],
+    :port => node[:goiardi][:port],
+    :hostname => node[:goiardi][:hostname],
+    :rundir => node[:goiardi][:rundir],
+    :freezeint => node[:goiardi][:freezeint],
+    :objsize => node[:goiardi][:objsize],
+    :jsonsize => node[:goiardi][:jsonsize]
   })
 end

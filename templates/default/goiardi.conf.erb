@@ -1,7 +1,17 @@
+# IP address to listen on. Set to "0.0.0.0" to listen on all interfaces
+ipaddress = "<%= @ipaddress %>"
+
+# TCP port to listen on
+port = <%= @port %>
+
+# Hostname goiardi should use. Used for sending links to resources back to the
+# client
+hostname = "<%= @hostname %>"
+
 # If these two options are both set, goiardi will save the data store and index
 # data to disk. It will cause an error to only set one of the options
-index-file = "<%= @store %>/goiardi-index.bin"
-data-file = "<%= @store %>/goiardi-data.bin"
+index-file = "<%= @rundir %>/goiardi-index.bin"
+data-file = "<%= @rundir %>/goiardi-data.bin"
 
 # How often to save the index and data files from the background. Not
 # particularly useful without setting index-file and data-file
@@ -13,7 +23,7 @@ obj-max-size = <%= @objsize %>
 # Maximum size for a JSON request from the client. Default is 1000000.
 json-req-max-size = <%= @jsonsize %>
 
-# Local directory for storing cookbook files on the filesystem. Optional in 
+# Local directory for storing cookbook files on the filesystem. Optional in
 # in-memory mode (standard behavior is to keep the files in memory), and
 # mandatory for SQL mode.
-local-filestore-dir = "<%= @store %>/file_checksums"
+local-filestore-dir = "<%= @rundir %>/file_checksums"
