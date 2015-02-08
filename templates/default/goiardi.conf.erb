@@ -10,10 +10,8 @@ hostname = "<%= @hostname %>"
 
 # You can use log-file, syslog, or neither, but you cannot use both
 <% if @logfile %>
-# Where to send log data instead of stdout
 log-file = "<%= @logfile %>"
 <% else %>
-# Or log to syslog
 syslog = <%= @syslog %>
 <% end %>
 
