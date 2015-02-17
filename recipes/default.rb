@@ -29,8 +29,8 @@ directory node[:goiardi][:confdir] do
   recursive true
 end
 
-%i{ lfsdir rundir }.each do |d|
-  directory node[:goiardi][d] do
+%w{ lfsdir rundir }.each do |d|
+  directory node[:goiardi][d.to_sym] do
     mode "0700"
     owner "root"
     group "root"
