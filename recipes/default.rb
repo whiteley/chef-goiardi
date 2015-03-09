@@ -17,42 +17,42 @@
 # limitations under the License.
 #
 
-remote_file "/usr/bin/goiardi" do
-  source node[:goiardi][:bin]
-  mode "0755"
+remote_file '/usr/bin/goiardi' do
+  source node['goiardi']['bin']
+  mode '0755'
 end
 
-directory node[:goiardi][:confdir] do
-  mode "0755"
-  owner "root"
-  group "root"
+directory node['goiardi']['confdir'] do
+  mode '0755'
+  owner 'root'
+  group 'root'
   recursive true
 end
 
-%w{ lfsdir rundir }.each do |d|
-  directory node[:goiardi][d.to_sym] do
-    mode "0700"
-    owner "root"
-    group "root"
+%w( lfsdir rundir ).each do |d|
+  directory node['goiardi'][d] do
+    mode '0700'
+    owner 'root'
+    group 'root'
     recursive true
   end
 end
 
-template node[:goiardi][:config] do
-  source "goiardi.conf.erb"
-  mode "0444"
-  owner "root"
-  group "root"
+template node['goiardi']['config'] do
+  source 'goiardi.conf.erb'
+  mode '0444'
+  owner 'root'
+  group 'root'
   variables({
-    :ipaddress => node[:goiardi][:ipaddress],
-    :port => node[:goiardi][:port],
-    :hostname => node[:goiardi][:hostname],
-    :rundir => node[:goiardi][:rundir],
-    :freezeint => node[:goiardi][:freezeint],
-    :objsize => node[:goiardi][:objsize],
-    :jsonsize => node[:goiardi][:jsonsize],
-    :logfile => node[:goiardi][:logfile],
-    :syslog => node[:goiardi][:syslog],
-    :loglevel => node[:goiardi][:loglevel]
+    :ipaddress => node['goiardi']['ipaddress'],
+    :port => node['goiardi']['port'],
+    :hostname => node['goiardi']['hostname'],
+    :rundir => node['goiardi']['rundir'],
+    :freezeint => node['goiardi']['freezeint'],
+    :objsize => node['goiardi']['objsize'],
+    :jsonsize => node['goiardi']['jsonsize'],
+    :logfile => node['goiardi']['logfile'],
+    :syslog => node['goiardi']['syslog'],
+    :loglevel => node['goiardi']['loglevel']
   })
 end
