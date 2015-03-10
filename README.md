@@ -1,3 +1,7 @@
+[![Build Status](http://img.shields.io/travis/whiteley/chef-goiardi.svg)][travis]
+
+[travis]: http://travis-ci.org/whiteley/chef-goiardi
+
 # goiardi-cookbook
 
 Installs and configures [Goiardi](http://goiardi.gl).
