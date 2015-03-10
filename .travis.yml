@@ -1,0 +1,8 @@
+language: ruby
+
+cache:
+  - apt
+  - bundler
+
+script:
+  - bundle exec foodcritic --epic-fail any ./
