@@ -21,8 +21,8 @@ include_recipe 'goiardi'
 include_recipe 'runit'
 
 runit_service 'goiardi' do
-  options({
+  options(
     :config => node['goiardi']['config']
-  })
+  )
   subscribes :restart, "template[#{node['goiardi']['config']}]", :delayed
 end

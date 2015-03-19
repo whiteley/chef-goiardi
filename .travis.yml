@@ -9,4 +9,5 @@ cache:
   - bundler
 
 script:
+  - bundle exec rubocop
   - bundle exec foodcritic --epic-fail any ./

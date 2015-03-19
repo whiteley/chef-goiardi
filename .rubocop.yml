@@ -1,0 +1,15 @@
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+
+LineLength:
+  Exclude:
+    - '**/attributes/*.rb'
+    - '**/metadata.rb'
+
+Style/HashSyntax:
+  Enabled: false
+
+Style/SingleSpaceBeforeFirstArg:
+  Exclude:
+    - '**/metadata.rb'

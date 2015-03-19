@@ -43,7 +43,7 @@ template node['goiardi']['config'] do
   mode '0444'
   owner 'root'
   group 'root'
-  variables({
+  variables(
     :ipaddress => node['goiardi']['ipaddress'],
     :port => node['goiardi']['port'],
     :hostname => node['goiardi']['hostname'],
@@ -54,5 +54,5 @@ template node['goiardi']['config'] do
     :logfile => node['goiardi']['logfile'],
     :syslog => node['goiardi']['syslog'],
     :loglevel => node['goiardi']['loglevel']
-  })
+  )
 end
