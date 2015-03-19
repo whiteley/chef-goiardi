@@ -11,3 +11,4 @@ cache:
 script:
   - bundle exec rubocop
   - bundle exec foodcritic --epic-fail any ./
+  - bundle exec rspec
