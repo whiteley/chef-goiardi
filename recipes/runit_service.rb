@@ -24,5 +24,5 @@ runit_service 'goiardi' do
   options(
     config: node['goiardi']['config']
   )
-  subscribes :restart, "template[#{node['goiardi']['config']}]", :delayed
+  subscribes :restart, "template[#{node['goiardi']['config']}]"
 end

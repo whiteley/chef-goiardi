@@ -81,25 +81,25 @@ Installs and configures [Goiardi](http://goiardi.gl).
     <td><tt>node['hostname']</tt></td>
   </tr>
   <tr>
-    <td><tt>['goiardi']['freezeint']</tt></td>
+    <td><tt>['goiardi']['freeze_interval']</tt></td>
     <td>String</td>
     <td>Interval in seconds to freeze in-memory data structures to disk</td>
     <td><tt>10</tt></td>
   </tr>
   <tr>
-    <td><tt>['goiardi']['objsize']</tt></td>
+    <td><tt>['goiardi']['obj_max_size']</tt></td>
     <td>String</td>
     <td>Maximum object size in bytes for the file store</td>
     <td><tt>10485760</tt></td>
   </tr>
   <tr>
-    <td><tt>['goiardi']['jsonsize']</tt></td>
+    <td><tt>['goiardi']['json_req_max_size']</tt></td>
     <td>String</td>
     <td>Maximum size for a JSON request from the client</td>
     <td><tt>1000000</tt></td>
   </tr>
   <tr>
-    <td><tt>['goiardi']['logfile']</tt></td>
+    <td><tt>['goiardi']['log_file']</tt></td>
     <td>String</td>
     <td>Optional file to log to</td>
     <td><tt>nil</tt></td>
@@ -111,7 +111,7 @@ Installs and configures [Goiardi](http://goiardi.gl).
     <td><tt>true</tt></td>
   </tr>
   <tr>
-    <td><tt>['goiardi']['loglevel']</tt></td>
+    <td><tt>['goiardi']['log_level']</tt></td>
     <td>String</td>
     <td>Control log verbosity</td>
     <td><tt>critical</tt></td>

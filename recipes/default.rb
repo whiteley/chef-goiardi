@@ -48,11 +48,11 @@ template node['goiardi']['config'] do
     port: node['goiardi']['port'],
     hostname: node['goiardi']['hostname'],
     rundir: node['goiardi']['rundir'],
-    freezeint: node['goiardi']['freezeint'],
-    objsize: node['goiardi']['objsize'],
-    jsonsize: node['goiardi']['jsonsize'],
-    logfile: node['goiardi']['logfile'],
+    freeze_interval: node['goiardi']['freeze_interval'],
+    obj_max_size: node['goiardi']['obj_max_size'],
+    json_req_max_size: node['goiardi']['json_req_max_size'],
+    log_file: node['goiardi']['log_file'],
     syslog: node['goiardi']['syslog'],
-    loglevel: node['goiardi']['loglevel']
+    log_level: node['goiardi']['log_level']
   )
 end

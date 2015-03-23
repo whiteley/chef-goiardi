@@ -9,15 +9,15 @@ port = <%= @port %>
 hostname = "<%= @hostname %>"
 
 # You can use log-file, syslog, or neither, but you cannot use both
-<% if @logfile %>
-log-file = "<%= @logfile %>"
+<% if @log_file %>
+log-file = "<%= @log_file %>"
 <% else %>
 syslog = <%= @syslog %>
 <% end %>
 
 # Log level. Options are "debug", "info", "warning", "error", and "critical".
 # May be specified on the command line with one or more -V flags.
-log-level = "<%= @loglevel %>"
+log-level = "<%= @log_level %>"
 
 # If these two options are both set, goiardi will save the data store and index
 # data to disk. It will cause an error to only set one of the options
@@ -26,13 +26,13 @@ data-file = "<%= @rundir %>/goiardi-data.bin"
 
 # How often to save the index and data files from the background. Not
 # particularly useful without setting index-file and data-file
-freeze-interval = <%= @freezeint %>
+freeze-interval = <%= @freeze_interval %>
 
 # Maximum object size in bytes for the file store. Default 10485760 bytes (10MB).
-obj-max-size = <%= @objsize %>
+obj-max-size = <%= @obj_max_size %>
 
 # Maximum size for a JSON request from the client. Default is 1000000.
-json-req-max-size = <%= @jsonsize %>
+json-req-max-size = <%= @json_req_max_size %>
 
 # Local directory for storing cookbook files on the filesystem. Optional in
 # in-memory mode (standard behavior is to keep the files in memory), and
