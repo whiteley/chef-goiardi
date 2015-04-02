@@ -18,7 +18,7 @@ Installs and configures [Goiardi](http://goiardi.gl).
     <td><tt>['goiardi']['version']</tt></td>
     <td>String</td>
     <td>Goiardi version to install</td>
-    <td><tt>0.9.0</tt></td>
+    <td><tt>0.9.1</tt></td>
   </tr>
   <tr>
     <td><tt>['goiardi']['os']</tt></td>

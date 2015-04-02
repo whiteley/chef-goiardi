@@ -1,3 +1,7 @@
+# 0.2.0
+
+Update Goiardi to 0.9.1 and refactor attributes
+
 # 0.1.3
 
 Tarball in 0.1.2 included Berksfile.lock and Gemfile.lock

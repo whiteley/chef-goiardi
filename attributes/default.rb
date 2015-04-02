@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-default['goiardi']['version'] = '0.9.0'
+default['goiardi']['version'] = '0.9.1'
 default['goiardi']['os'] = node['os'].downcase
 default['goiardi']['arch'] = 'amd64'
 default['goiardi']['bin'] = "https://github.com/ctdk/goiardi/releases/download/v#{node['goiardi']['version']}/goiardi-#{node['goiardi']['version']}-#{node['goiardi']['os']}-#{node['goiardi']['arch']}"
