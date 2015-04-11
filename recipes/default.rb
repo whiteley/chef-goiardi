@@ -53,6 +53,21 @@ template node['goiardi']['config'] do
     json_req_max_size: node['goiardi']['json_req_max_size'],
     log_file: node['goiardi']['log_file'],
     syslog: node['goiardi']['syslog'],
-    log_level: node['goiardi']['log_level']
+    log_level: node['goiardi']['log_level'],
+    use_mysql: node['goiardi']['use_mysql'],
+    mysql_username: node['goiardi']['mysql_username'],
+    mysql_password: node['goiardi']['mysql_password'],
+    mysql_protocol: node['goiardi']['mysql_protocol'],
+    mysql_hostname: node['goiardi']['mysql_hostname'],
+    mysql_address: node['goiardi']['mysql_address'],
+    mysql_port: node['goiardi']['mysql_port'],
+    mysql_dbname: node['goiardi']['mysql_dbname'],
+    use_postgresql: node['goiardi']['use_postgresql'],
+    postgresql_username: node['goiardi']['postgresql_username'],
+    postgresql_password: node['goiardi']['postgresql_password'],
+    postgresql_host: node['goiardi']['postgresql_hostname'],
+    postgresql_port: node['goiardi']['postgresql_port'],
+    postgresql_dbname: node['goiardi']['postgresql_dbname'],
+    postgresql_sslmode: node['goiardi']['postgresql_sslmode']
   )
 end

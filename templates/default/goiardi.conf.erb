@@ -21,8 +21,10 @@ log-level = "<%= @log_level %>"
 
 # If these two options are both set, goiardi will save the data store and index
 # data to disk. It will cause an error to only set one of the options
+<% unless @use_mysql or @use_postgresql %>
 index-file = "<%= @rundir %>/goiardi-index.bin"
 data-file = "<%= @rundir %>/goiardi-data.bin"
+<% end %>
 
 # How often to save the index and data files from the background. Not
 # particularly useful without setting index-file and data-file
@@ -38,3 +40,24 @@ json-req-max-size = <%= @json_req_max_size %>
 # in-memory mode (standard behavior is to keep the files in memory), and
 # mandatory for SQL mode.
 local-filestore-dir = "<%= @rundir %>/file_checksums"
+
+<% if @use_mysql %>
+use-mysql = true
+[mysql]
+    username = <%= @mysql_username %>
+    password = <%= @mysql_password %>
+    protocol = <%= @mysql_protocol %>
+    address = <%= @mysql_hostname %>
+    port = <%= @mysql_port %>
+    dbname = <%= @mysql_dbname %>
+<% end %>
+<% if @use_postgresql %>
+use-postgresql = true
+[postgresql]
+    username = <%= @postgresql_username %>
+    password = <%= @postgresql_password %>
+    host = <%= @postgresql_host %>
+    port = <%= @postgresql_port %>
+    dbname = <%= @postgresql_dbname %>
+    sslmode = <%= @postgresql_sslmode %>
+<% end %>
