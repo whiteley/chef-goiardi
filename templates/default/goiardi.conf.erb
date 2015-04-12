@@ -21,8 +21,8 @@ log-level = "<%= @log_level %>"
 
 # If these two options are both set, goiardi will save the data store and index
 # data to disk. It will cause an error to only set one of the options
-<% unless @use_mysql or @use_postgresql %>
 index-file = "<%= @rundir %>/goiardi-index.bin"
+<% unless @use_mysql or @use_postgresql %>
 data-file = "<%= @rundir %>/goiardi-data.bin"
 <% end %>
 
