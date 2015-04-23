@@ -9,3 +9,4 @@ version          '0.2.1'
 depends          'runit'
 
 supports         'ubuntu', '>= 12.04'
+supports	 'debian'

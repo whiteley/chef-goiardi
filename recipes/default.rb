@@ -38,6 +38,22 @@ end
   end
 end
 
+file node['goiardi']['ssl_cert_filename'] do
+  mode '0444'
+  owner 'root'
+  group 'root'
+  content node['goiardi']['ssl_cert']
+  only_if { node['goiardi']['use_ssl'] }
+end
+
+file node['goiardi']['ssl_key_filename'] do
+  mode '0400'
+  owner 'root'
+  group 'root'
+  content node['goiardi']['ssl_key']
+  only_if { node['goiardi']['use_ssl'] }
+end
+
 template node['goiardi']['config'] do
   source 'goiardi.conf.erb'
   mode '0444'
@@ -54,6 +70,12 @@ template node['goiardi']['config'] do
     log_file: node['goiardi']['log_file'],
     syslog: node['goiardi']['syslog'],
     log_level: node['goiardi']['log_level'],
+    conf_root: node['goiardi']['confdir'],
+    use_auth: node['goiardi']['use_auth'],
+    use_ssl: node['goiardi']['use_ssl'],
+    ssl_cert: node['goiardi']['ssl_cert_filename'],
+    ssl_key: node['goiardi']['ssl_key_filename'],
+    https_urls: node['goiardi']['https_urls'],
     use_mysql: node['goiardi']['use_mysql'],
     mysql_username: node['goiardi']['mysql_username'],
     mysql_password: node['goiardi']['mysql_password'],

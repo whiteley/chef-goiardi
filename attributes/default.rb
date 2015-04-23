@@ -34,6 +34,15 @@ default['goiardi']['json_req_max_size'] = '1000000'
 default['goiardi']['log_file'] = nil
 default['goiardi']['syslog'] = true
 default['goiardi']['log_level'] = 'critical'
+default['goiardi']['use_auth'] = true
+
+default['goiardi']['use_ssl'] = false
+default['goiardi']['ssl_cert'] = nil
+default['goiardi']['ssl_key'] = nil
+default['goiardi']['ssl_cert_filename'] = "#{node['goiardi']['confdir']}/cert.pem" 
+default['goiardi']['ssl_key_filename'] = "#{node['goiardi']['confdir']}/key.pem"
+default['goiardi']['https_urls'] = false
+
 default['goiardi']['use_mysql'] = false
 default['goiardi']['mysql_username'] = 'root'
 default['goiardi']['mysql_password'] = 'root'
@@ -41,6 +50,7 @@ default['goiardi']['mysql_protocol'] = 'tcp'
 default['goiardi']['mysql_address'] = 'localhost'
 default['goiardi']['mysql_port'] = '3306'
 default['goiardi']['mysql_dbname'] = 'goiardi'
+
 default['goiardi']['use_postgresql'] = false
 default['goiardi']['postgresql_username'] = 'root'
 default['goiardi']['postgresql_password'] = 'root'
