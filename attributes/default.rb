@@ -39,7 +39,7 @@ default['goiardi']['use_auth'] = true
 default['goiardi']['use_ssl'] = false
 default['goiardi']['ssl_cert'] = nil
 default['goiardi']['ssl_key'] = nil
-default['goiardi']['ssl_cert_filename'] = "#{node['goiardi']['confdir']}/cert.pem" 
+default['goiardi']['ssl_cert_filename'] = "#{node['goiardi']['confdir']}/cert.pem"
 default['goiardi']['ssl_key_filename'] = "#{node['goiardi']['confdir']}/key.pem"
 default['goiardi']['https_urls'] = false
 
