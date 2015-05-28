@@ -16,3 +16,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+include_recipe 'nginx'
+include_recipe 'rbenv'
+include_recipe 'rbenv::ruby_build'
+
+rbenv_ruby node['goiardi']['webui']['ruby_version']
+rbenv_gem 'bundler' do
+  ruby_version node['goiardi']['webui']['ruby_version']
+end
+
+deploy_revision node['goiardi']['webui']['deploy_location'] do
+  repo node['goiardi']['webui']['repo_url']
+  revision node['goiardi']['webui']['deploy_revision']
+  action node['goiardi']['webui']['deploy_revision'].to_sym
+  migrate false
+end

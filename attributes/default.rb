@@ -60,3 +60,8 @@ default['goiardi']['postgresql_host'] = 'localhost'
 default['goiardi']['postgresql_port'] = '5432'
 default['goiardi']['postgresql_dbname'] = 'goiardi'
 default['goiardi']['postgresql_sslmode'] = 'disable'
+
+# webui
+default['goiardi']['webui']['ruby_version'] = '2.2.2'
+default['goiardi']['webui']['repo_url'] = 'https://github.com/chef/chef-server-webui.git'
+default['goiardi']['webui']['deploy_location'] = '/srv/chef-webui'
