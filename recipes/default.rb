@@ -17,17 +17,14 @@
 # limitations under the License.
 #
 
-remote_file "/usr/bin/goiardi" do
-  source node["goiardi"]["bin"]
-  mode "0755"
-end
-
 directory node["goiardi"]["confdir"] do
   mode "0755"
   owner "root"
   group "root"
   recursive true
 end
+
+include_recipe "goiardi::#{node["goiardi"]["install_method"]}"
 
 %w( lfsdir rundir ).each do |d|
   directory node["goiardi"][d] do

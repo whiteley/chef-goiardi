@@ -20,7 +20,9 @@
 default["goiardi"]["version"] = "0.9.2"
 default["goiardi"]["os"] = node["os"].downcase
 default["goiardi"]["arch"] = "amd64"
+default["goiardi"]["install_method"] = "binary"
 default["goiardi"]["bin"] = "https://github.com/ctdk/goiardi/releases/download/v#{node["goiardi"]["version"]}/goiardi-#{node["goiardi"]["version"]}-#{node["goiardi"]["os"]}-#{node["goiardi"]["arch"]}"
+default["goiardi"]["repo"] = "ct/goiardi"
 default["goiardi"]["confdir"] = "/etc/goiardi"
 default["goiardi"]["config"] = "#{node["goiardi"]["confdir"]}/goiardi.conf"
 default["goiardi"]["rundir"] = "/var/run/goiardi"

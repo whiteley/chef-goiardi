@@ -1,3 +1,7 @@
+# 0.3.2
+
+Support installation from package and source (thanks @ctdk)
+
 # 0.3.1
 
 Update Goiardi to 0.9.2 and pin runit cookbook to 1.6.x
