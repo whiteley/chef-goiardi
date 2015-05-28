@@ -7,6 +7,9 @@ long_description 'Installs/Configures goiardi'
 version          '0.3.0'
 
 depends          'runit'
+depends		 'packagecloud', '~> 0.0.17'
+depends		 'golang', '~> 1.5.1'
+
 
 supports         'ubuntu', '>= 12.04'
 supports         'debian'

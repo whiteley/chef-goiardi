@@ -17,16 +17,12 @@
 # limitations under the License.
 #
 
-remote_file '/usr/bin/goiardi' do
-  source node['goiardi']['bin']
-  mode '0755'
-end
-
-directory node['goiardi']['confdir'] do
-  mode '0755'
-  owner 'root'
-  group 'root'
-  recursive true
+if node['goiardi']['install_method'] == "package"
+  include_recipe "goiardi::package"
+elsif node['goiardi']['install_method'] == "source"
+  include_recipe "goiardi::source"
+else
+  include_recipe "goiardi::binary"
 end
 
 %w( lfsdir rundir ).each do |d|
