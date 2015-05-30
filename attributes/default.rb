@@ -62,6 +62,9 @@ default['goiardi']['postgresql_dbname'] = 'goiardi'
 default['goiardi']['postgresql_sslmode'] = 'disable'
 
 # webui
-default['goiardi']['webui']['ruby_version'] = '2.2.2'
-default['goiardi']['webui']['repo_url'] = 'https://github.com/chef/chef-server-webui.git'
+default['goiardi']['webui']['ruby_version'] = '1.9.3-p194'
+default['goiardi']['webui']['rubies'] = %w( 2.2.2 2.0.0-p645 )
+default['goiardi']['webui']['repo_url'] = 'https://github.com/ctdk/chef-server-webui.git'
 default['goiardi']['webui']['deploy_location'] = '/srv/chef-webui'
+default['goiardi']['webui']['deploy_revision'] = 'master'
+default['goiardi']['webui']['deploy_action'] = 'deploy'

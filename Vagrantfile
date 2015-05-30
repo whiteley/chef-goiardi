@@ -16,6 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.berkshelf.enabled = true
 
+  config.vm.provision :shell, inline: 'sudo apt-get update'
   config.vm.provision :chef_solo do |chef|
     chef.json = {
       goiardi: {
@@ -24,7 +25,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     }
 
     chef.run_list = [
-      'recipe[goiardi::default]'
+      'recipe[goiardi::default]',
+      'recipe[goiardi::webui]'
     ]
   end
 end
