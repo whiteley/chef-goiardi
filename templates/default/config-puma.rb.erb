@@ -1,0 +1,8 @@
+rackup DefaultRackup
+environment '<%= node['goiardi']['webui']['environment'] %>'
+pidfile '<%= "#{node['goiardi']['webui']['deploy_location']}/shared/pids/puma.pid" %>'
+state_path '<%= "#{node['goiardi']['webui']['deploy_location']}/shared/pids/puma.state" %>'
+stdout_redir '<%= "#{node['goiardi']['webui']['deploy_location']}/shared/log/puma.log" %>', '<%= "#{node['goiardi']['webui']['deploy_location']}/shared/log/puma-err.log" %>'
+threads <%= node['goiardi']['webui']['thread_min'] %>, <%= node['goiardi']['webui']['thread_max'] %>
+bind 'unix:<%= node['goiardi']['webui']['deploy_location'] %>/shared/sockets/puma.sock'
+workers <%= node['goiardi']['webui']['workers'] %>

@@ -5,7 +5,7 @@ upstream goiardi {
 # TODO: also configure for SSL.
 server {
   listen <%= node['goiardi']['webui']['port'] %> default deferred;
-  server_name <%= node['goiardi']['webui']['server_name'];
+  server_name <%= node['goiardi']['webui']['server_name'] %>;
   # allow only valid crud methods
   if ($request_method !~ GET|POST|PUT|DELETE|PATCH) {
     return 405;
@@ -20,7 +20,7 @@ server {
   add_header "X-UA-Compatible" "IE=Edge,chrome=1";
 
   location / {
-    try_files $uri @goiardi
+    try_files $uri @goiardi;
   }
   location /nginx_status {
     stub_status on;

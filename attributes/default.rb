@@ -72,3 +72,7 @@ default['goiardi']['webui']['deploy_revision'] = 'master'
 default['goiardi']['webui']['deploy_action'] = 'deploy'
 default['goiardi']['webui']['port'] = 80
 default['goiardi']['webui']['server_name'] = node['goiardi']['hostname']
+default['goiardi']['webui']['environment'] = 'production'
+default['goiardi']['webui']['thread_min'] = 0
+default['goiardi']['webui']['thread_max'] = 16
+default['goiardi']['webui']['workers'] = 2
