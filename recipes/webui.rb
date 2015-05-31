@@ -32,6 +32,17 @@ end
 deploy_revision node['goiardi']['webui']['deploy_location'] do
   repo node['goiardi']['webui']['repo_url']
   revision node['goiardi']['webui']['deploy_revision']
+  user node['goiardi']['user']
+  group node['goiardi']['group']
   action node['goiardi']['webui']['deploy_action'].to_sym
   migrate false
+end
+
+%w(log pids sockets system).each do |d|
+  directory "#{node['goiardi']['webui']['deploy_location']}/shared/#{d}" do
+    owner node['goiardi']['user']
+    group node['goiardi']['group']
+    mode "0775"
+    action :create
+  end
 end

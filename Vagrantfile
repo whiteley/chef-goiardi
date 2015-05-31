@@ -20,7 +20,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :chef_solo do |chef|
     chef.json = {
       goiardi: {
-        use_mysql: true
+        use_mysql: false
       }
     }
 

@@ -11,6 +11,7 @@ depends		 'packagecloud', '~> 0.0.17'
 depends		 'golang', '~> 1.5.1'
 depends		 'nginx', '~> 2.7.6'
 depends		 'rbenv', '~> 1.7.1'
+depends		 'logrotate', '~> 1.9.1'
 
 
 supports         'ubuntu', '>= 12.04'

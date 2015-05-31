@@ -18,6 +18,7 @@
 #
 
 include_recipe 'golang'
+include_recipe "goiardi::user"
 
 golang_package node['goiardi']['package'] do
   action :install
@@ -25,8 +26,8 @@ end
 
 directory node['goiardi']['confdir'] do
   mode '0755'
-  owner 'root'
-  group 'root'
+  owner node['goiardi']['user']
+  group node['goiardi']['group']
   recursive true
 end
 

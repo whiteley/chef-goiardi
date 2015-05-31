@@ -1,0 +1,31 @@
+upstream goiardi {
+  server unix:<%= node['goiardi']['webui']['deploy_location'] %>/shared/sockets/puma.sock fail_timeout=0;
+}
+
+# TODO: also configure for SSL.
+server {
+  listen <%= node['goiardi']['webui']['port'] %> default deferred;
+  server_name <%= node['goiardi']['webui']['server_name'];
+  # allow only valid crud methods
+  if ($request_method !~ GET|POST|PUT|DELETE|PATCH) {
+    return 405;
+  }
+
+  # ignore obviously false requests
+  if ($request_filename ~ \.(php.?|[ajk]sp[ax]?|[a-z]?html?|x|idc|log|cf[mc]?|mdb|do|(ms|f)?cgi|p(er)?lx?|nsf|dll|fts|exe|bat|dot|ini|com|pif|sh|sql|git|svn|yml)$) {
+    return 404;
+  }
+
+  # opt-in to the future
+  add_header "X-UA-Compatible" "IE=Edge,chrome=1";
+
+  location / {
+    try_files $uri @goiardi
+  }
+  location /nginx_status {
+    stub_status on;
+    access_log  off;
+    allow       127.0.0.1;
+    deny        all;
+  }
+}
