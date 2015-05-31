@@ -17,6 +17,7 @@
 # limitations under the License.
 #
 
+require 'securerandom'
 include_recipe 'nginx'
 include_recipe 'rbenv'
 include_recipe 'rbenv::ruby_build'
@@ -54,6 +55,32 @@ template "#{node['goiardi']['webui']['deploy_location']}/shared/config/puma.rb" 
   action :create
 end
 
+secret_token = SecureRandom.hex(30)
+template "#{node['goiardi']['webui']['deploy_location']}/shared/config/secret_token.rb" do
+  source "secret_token.rb.erb"
+  owner node['goiardi']['user']
+  group node['goiardi']['group']
+  mode "0600"
+  variables :token => secret_token
+  action :create_if_missing
+end
+
+template "#{node['goiardi']['webui']['deploy_location']}/shared/config/webui_server_init.rb" do
+  source "webui_server_init.rb.erb"
+  owner node['goiardi']['user']
+  group node['goiardi']['group']
+  mode "0644"
+  variables({
+    :chef_server_url => node['goiardi']['webui']['chef_server_url'],
+    :client_name => node['goiardi']['webui']['client_name'],
+    :client_key => node['goiardi']['webui']['client_key'],
+    :admin_user => node['goiardi']['webui']['admin_user'],
+    :admin_pass => node['goiardi']['webui']['admin_password'],
+    :http_headers => node['goiardi']['webui']['custom_http_headers']
+  })
+  action :create
+end
+
 deploy_revision node['goiardi']['webui']['deploy_location'] do
   repo node['goiardi']['webui']['repo_url']
   revision node['goiardi']['webui']['deploy_revision']
@@ -86,6 +113,16 @@ deploy_revision node['goiardi']['webui']['deploy_location'] do
       ruby_version node['goiardi']['webui']['ruby_version']
       action :run
     end
+  end
+end
+
+%w(secret_token webui_server_init).each do |f|
+  file "#{node['goiardi']['webui']['deploy_location']}/current/config/initializers/#{f}.rb" do
+    action :delete
+  end
+  link "#{node['goiardi']['webui']['deploy_location']}/current/config/initializers/#{f}.rb" do
+    to "#{node['goiardi']['webui']['deploy_location']}/shared/config/#{f}.rb"
+    action :create
   end
 end
 
