@@ -63,16 +63,24 @@ deploy_revision node['goiardi']['webui']['deploy_location'] do
   symlink_before_migrate "config/puma.rb" => "config/puma.rb"
   migrate false
   before_restart do
-    rbenv_execute "chef-webui" do
+    rbenv_execute "set-ruby-ver-chef-webui" do
       cwd release_path
       command "rbenv local #{node['goiardi']['webui']['ruby_version']}"
       user node['goiardi']['user']
       group node['goiardi']['group']
       action :run
     end
-    rbenv_execute "chef-webui" do
+    rbenv_execute "bundle-chef-webui" do
       cwd release_path
-      command "RAILS_ENV=#{node['goiardi']['webui']['environment']} bundle install --deployment"
+      command "RAILS_ENV=#{node['goiardi']['webui']['environment']} bundle install --deployment --path vendor/bundle"
+      user node['goiardi']['user']
+      group node['goiardi']['group']
+      ruby_version node['goiardi']['webui']['ruby_version']
+      action :run
+    end
+    rbenv_execute "assets-chef-webui" do
+      cwd release_path
+      command "RAILS_ENV=#{node['goiardi']['webui']['environment']} bundle exec rake assets:precompile"
       user node['goiardi']['user']
       group node['goiardi']['group']
       ruby_version node['goiardi']['webui']['ruby_version']
