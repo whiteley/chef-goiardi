@@ -76,7 +76,8 @@ template "#{node['goiardi']['webui']['deploy_location']}/shared/config/webui_ser
     :client_key => node['goiardi']['webui']['client_key'],
     :admin_user => node['goiardi']['webui']['admin_user'],
     :admin_pass => node['goiardi']['webui']['admin_password'],
-    :http_headers => node['goiardi']['webui']['custom_http_headers']
+    :http_headers => node['goiardi']['webui']['custom_http_headers'],
+    :title_string => node['goiardi']['webui']['title_string']
   })
   action :create
 end

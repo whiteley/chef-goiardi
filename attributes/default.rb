@@ -83,3 +83,4 @@ default['goiardi']['webui']['client_key'] = '/etc/goiardi/chef-webui.pem'
 default['goiardi']['webui']['admin_user'] = 'admin'
 default['goiardi']['webui']['admin_password'] = 'p@ssw0rd1'
 default['goiardi']['webui']['custom_http_headers'] = {}
+default['goiardi']['webui']['title_string'] = "Goiardi Server"
