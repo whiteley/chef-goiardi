@@ -65,18 +65,19 @@ default['goiardi']['postgresql_sslmode'] = 'disable'
 
 # webui
 default['goiardi']['webui']['ruby_version'] = '1.9.3-p194'
-default['goiardi']['webui']['rubies'] = %w( 2.2.2 2.0.0-p645 )
+default['goiardi']['webui']['rubies'] = [] # %w( 2.2.2 2.0.0-p645 )
 default['goiardi']['webui']['repo_url'] = 'https://github.com/ctdk/chef-server-webui.git'
 default['goiardi']['webui']['deploy_location'] = '/srv/chef-webui'
 default['goiardi']['webui']['deploy_revision'] = 'master'
 default['goiardi']['webui']['deploy_action'] = 'deploy'
 default['goiardi']['webui']['port'] = 80
+default['goiardi']['webui']['ssl_port'] = 443
 default['goiardi']['webui']['server_name'] = node['goiardi']['hostname']
 default['goiardi']['webui']['environment'] = 'production'
 default['goiardi']['webui']['thread_min'] = 0
 default['goiardi']['webui']['thread_max'] = 16
 default['goiardi']['webui']['workers'] = 2
-default['goiardi']['webui']['chef_server_url'] = 'http://127.0.0.1:4545'
+default['goiardi']['webui']['chef_server_url'] = 'https://127.0.0.1:4545'
 default['goiardi']['webui']['client_name'] = 'chef-webui'
 default['goiardi']['webui']['client_key'] = '/etc/goiardi/chef-webui.pem'
 default['goiardi']['webui']['admin_user'] = 'admin'

@@ -179,6 +179,21 @@ execute "nginx-stop-and-kill" do
   notifies :start, "service[nginx]", :immediately
 end
 
+if node['goiardi']['use_ssl']
+  file node['goiardi']['ssl_cert_filename'] do
+    mode '0444'
+    owner node['goiardi']['user']
+    group node['nginx']['group']
+    action :touch
+  end
+  file node['goiardi']['ssl_key_filename'] do
+    mode '0440'
+    owner node['goiardi']['user']
+    group node['nginx']['group']
+    action :touch
+  end
+end
+
 template "/etc/nginx/sites-available/goiardi-webui" do
   source "goiardi_nginx.conf.erb"
 end
