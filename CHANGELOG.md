@@ -1,3 +1,7 @@
+# 0.3.6
+
+Update Goiardi to 0.10.0
+
 # 0.3.5
 
 Ensure required runtime directories at start
