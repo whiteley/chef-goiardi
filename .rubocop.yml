@@ -1,15 +1,21 @@
 AllCops:
   Exclude:
-    - 'vendor/**/*'
+    - "vendor/**/*"
 
 LineLength:
   Exclude:
-    - '**/attributes/*.rb'
-    - '**/metadata.rb'
+    - "**/attributes/*.rb"
+    - "**/metadata.rb"
+
+StringLiterals:
+  EnforcedStyle: double_quotes
+
+StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
 
 Style/HashSyntax:
   Enabled: false
 
 Style/SingleSpaceBeforeFirstArg:
   Exclude:
-    - '**/metadata.rb'
+    - "**/metadata.rb"
