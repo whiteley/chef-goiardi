@@ -6,8 +6,6 @@ gem "test-kitchen"
 
 group :test do
   gem "chefspec"
-  gem "fauxhai"
   gem "foodcritic"
-  gem "rainbow"
   gem "rubocop"
 end
