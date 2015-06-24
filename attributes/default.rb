@@ -39,6 +39,8 @@ default["goiardi"]["log_file"] = nil
 default["goiardi"]["syslog"] = true
 default["goiardi"]["log_level"] = "critical"
 default["goiardi"]["use_auth"] = true
+default["goiardi"]["user"] = "goiardi"
+default["goiardi"]["group"] = "goiardi"
 
 default["goiardi"]["use_ssl"] = false
 default["goiardi"]["ssl_cert"] = nil

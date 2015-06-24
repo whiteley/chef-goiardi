@@ -4,7 +4,7 @@ maintainer_email "mwhiteley@fastly.com"
 license          "Apache 2.0"
 description      "Installs/Configures goiardi"
 long_description "Installs/Configures goiardi"
-version          "0.3.2"
+version          "0.3.3"
 
 depends "golang", "~> 1.5.1"
 depends "packagecloud", "~> 0.0.17"

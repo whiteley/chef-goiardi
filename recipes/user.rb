@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: goiardi
-# Recipe:: binary
+# Recipe:: user
 #
 # Copyright (C) 2015 Matt Whiteley
 #
@@ -17,14 +17,15 @@
 # limitations under the License.
 #
 
-remote_file "/usr/bin/goiardi" do
-  source node["goiardi"]["bin"]
-  mode "0755"
+group node["goiardi"]["group"] do
+  system true
 end
 
-directory node["goiardi"]["confdir"] do
-  mode "0755"
-  owner node["goiardi"]["user"]
-  group node["goiardi"]["group"]
-  recursive true
+user node["goiardi"]["user"] do
+  comment "goiardi user"
+  home node["goiardi"]["rundir"]
+  system true
+  shell "/bin/false"
+  gid node["goiardi"]["group"]
+  action :create
 end

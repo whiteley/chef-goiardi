@@ -1,3 +1,8 @@
+# 0.3.3
+
+Create a goiardi user and group and chown some resources (thanks @ctdk)
+Runit service not effected
+
 # 0.3.2
 
 Support installation from package and source (thanks @ctdk)

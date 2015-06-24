@@ -17,10 +17,12 @@
 # limitations under the License.
 #
 
+include_recipe "goiardi::user"
+
 directory node["goiardi"]["confdir"] do
   mode "0755"
-  owner "root"
-  group "root"
+  owner node["goiardi"]["user"]
+  group node["goiardi"]["group"]
   recursive true
 end
 
@@ -29,8 +31,8 @@ include_recipe "goiardi::#{node["goiardi"]["install_method"]}"
 %w( lfsdir rundir ).each do |d|
   directory node["goiardi"][d] do
     mode "0700"
-    owner "root"
-    group "root"
+    owner node["goiardi"]["user"]
+    group node["goiardi"]["group"]
     recursive true
   end
 end
@@ -38,15 +40,15 @@ end
 file node["goiardi"]["ssl_cert_filename"] do
   mode "0444"
   owner "root"
-  group "root"
+  group node["goiardi"]["group"]
   content node["goiardi"]["ssl_cert"]
   only_if { node["goiardi"]["use_ssl"] }
 end
 
 file node["goiardi"]["ssl_key_filename"] do
-  mode "0400"
+  mode "0440"
   owner "root"
-  group "root"
+  group node["goiardi"]["group"]
   content node["goiardi"]["ssl_key"]
   only_if { node["goiardi"]["use_ssl"] }
 end
