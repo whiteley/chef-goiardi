@@ -5,6 +5,16 @@ describe "Goiardi configuration" do
     it { should be_a_file }
     its(:content) { should match('ipaddress = "0.0.0.0"') }
     its(:content) { should match("port = 4545") }
+    its(:content) { should match('ssl-cert = "/etc/goiardi/cert.pem"') }
+    its(:content) { should match('ssl-key = "/etc/goiardi/key.pem"') }
+  end
+
+  describe x509_certificate("/etc/goiardi/cert.pem") do
+    it { should be_certificate }
+  end
+
+  describe x509_private_key("/etc/goiardi/key.pem") do
+    it { should have_matching_certificate("/etc/goiardi/cert.pem") }
   end
 end
 
