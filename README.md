@@ -1,6 +1,5 @@
-[![Build Status](http://img.shields.io/travis/whiteley/chef-goiardi.svg)][travis]
-
-[travis]: http://travis-ci.org/whiteley/chef-goiardi
+[![Build Status](http://img.shields.io/travis/whiteley/chef-goiardi.svg)](http://travis-ci.org/whiteley/chef-goiardi)
+[![Cookbook Version](https://img.shields.io/cookbook/v/goiardi.svg)](https://supermarket.chef.io/cookbooks/goiardi)
 
 # goiardi-cookbook
 
@@ -8,6 +7,8 @@ Installs and configures [Goiardi](http://goiardi.gl).
 
 ## Supported Platforms
 
+* Debian 7
+* Debian 8
 * Ubuntu 12.04
 * Ubuntu 14.04
 
@@ -18,7 +19,7 @@ Installs and configures [Goiardi](http://goiardi.gl).
     <td><tt>['goiardi']['version']</tt></td>
     <td>String</td>
     <td>Goiardi version to install</td>
-    <td><tt>0.9.1</tt></td>
+    <td><tt>0.9.2</tt></td>
   </tr>
   <tr>
     <td><tt>['goiardi']['os']</tt></td>
