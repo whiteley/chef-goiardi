@@ -1,3 +1,11 @@
+# 0.3.1
+
+Update Goiardi to 0.9.2 and pin runit cookbook to 1.6.x
+
+# 0.3.0
+
+Add authentication and SSL support (thanks @ctdk)
+
 # 0.2.0
 
 Update Goiardi to 0.9.1 and refactor attributes
