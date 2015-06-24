@@ -17,39 +17,35 @@
 # limitations under the License.
 #
 
-remote_file '/usr/bin/goiardi' do
-  source node['goiardi']['bin']
-  mode '0755'
-end
-
-directory node['goiardi']['confdir'] do
-  mode '0755'
-  owner 'root'
-  group 'root'
-  recursive true
+if node['goiardi']['install_method'] == "package"
+  include_recipe "goiardi::package"
+elsif node['goiardi']['install_method'] == "source"
+  include_recipe "goiardi::source"
+else
+  include_recipe "goiardi::binary"
 end
 
 %w( lfsdir rundir ).each do |d|
   directory node['goiardi'][d] do
     mode '0700'
-    owner 'root'
-    group 'root'
+    owner node['goiardi']['user']
+    group node['goiardi']['group']
     recursive true
   end
 end
 
 file node['goiardi']['ssl_cert_filename'] do
   mode '0444'
-  owner 'root'
-  group 'root'
+  owner node['goiardi']['user']
+  group node['goiardi']['group']
   content node['goiardi']['ssl_cert']
   only_if { node['goiardi']['use_ssl'] }
 end
 
 file node['goiardi']['ssl_key_filename'] do
   mode '0400'
-  owner 'root'
-  group 'root'
+  owner node['goiardi']['user']
+  group node['goiardi']['group']
   content node['goiardi']['ssl_key']
   only_if { node['goiardi']['use_ssl'] }
 end
@@ -64,6 +60,9 @@ template node['goiardi']['config'] do
     port: node['goiardi']['port'],
     hostname: node['goiardi']['hostname'],
     rundir: node['goiardi']['rundir'],
+    lfsdir: node['goiardi']['lfsdir'],
+    index_file: node['goiardi']['index_file'],
+    data_file: node['goiardi']['data_file'],
     freeze_interval: node['goiardi']['freeze_interval'],
     obj_max_size: node['goiardi']['obj_max_size'],
     json_req_max_size: node['goiardi']['json_req_max_size'],

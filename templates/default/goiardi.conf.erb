@@ -21,9 +21,9 @@ log-level = "<%= @log_level %>"
 
 # If these two options are both set, goiardi will save the data store and index
 # data to disk. It will cause an error to only set one of the options
-index-file = "<%= @rundir %>/goiardi-index.bin"
+index-file = "<%= @index_file %>"
 <% unless @use_mysql or @use_postgresql %>
-data-file = "<%= @rundir %>/goiardi-data.bin"
+data-file = "<%= @data_file %>"
 <% end %>
 
 # How often to save the index and data files from the background. Not
@@ -68,25 +68,25 @@ https-urls = <%= @https_urls %>
 # Local directory for storing cookbook files on the filesystem. Optional in
 # in-memory mode (standard behavior is to keep the files in memory), and
 # mandatory for SQL mode.
-local-filestore-dir = "<%= @rundir %>/file_checksums"
+local-filestore-dir = "<%= @lfsdir %>"
 
 <% if @use_mysql %>
 use-mysql = true
 [mysql]
-    username = <%= @mysql_username %>
-    password = <%= @mysql_password %>
-    protocol = <%= @mysql_protocol %>
-    address = <%= @mysql_address %>
-    port = <%= @mysql_port %>
-    dbname = <%= @mysql_dbname %>
+    username = "<%= @mysql_username %>"
+    password = "<%= @mysql_password %>"
+    protocol = "<%= @mysql_protocol %>"
+    address = "<%= @mysql_address %>"
+    port = "<%= @mysql_port %>"
+    dbname = "<%= @mysql_dbname %>"
 <% end %>
 <% if @use_postgresql %>
 use-postgresql = true
 [postgresql]
-    username = <%= @postgresql_username %>
-    password = <%= @postgresql_password %>
-    host = <%= @postgresql_host %>
-    port = <%= @postgresql_port %>
-    dbname = <%= @postgresql_dbname %>
-    sslmode = <%= @postgresql_sslmode %>
+    username = "<%= @postgresql_username %>"
+    password = "<%= @postgresql_password %>"
+    host = "<%= @postgresql_host %>"
+    port = "<%= @postgresql_port %>"
+    dbname = "<%= @postgresql_dbname %>"
+    sslmode = "<%= @postgresql_sslmode %>"
 <% end %>
