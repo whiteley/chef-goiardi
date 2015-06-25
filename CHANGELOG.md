@@ -1,3 +1,7 @@
+# 0.3.4
+
+README updates
+
 # 0.3.3
 
 Create a goiardi user and group and chown some resources (thanks @ctdk)
