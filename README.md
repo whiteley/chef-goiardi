@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/whiteley/chef-goiardi.png?label=ready&title=Ready)](https://waffle.io/whiteley/chef-goiardi)
 [![Build Status](http://img.shields.io/travis/whiteley/chef-goiardi.svg)](http://travis-ci.org/whiteley/chef-goiardi)
 [![Cookbook Version](https://img.shields.io/cookbook/v/goiardi.svg)](https://supermarket.chef.io/cookbooks/goiardi)
 
