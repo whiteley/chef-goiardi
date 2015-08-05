@@ -22,7 +22,11 @@ include_recipe "runit"
 
 runit_service "goiardi" do
   options(
-    config: node["goiardi"]["config"]
+    config: node["goiardi"]["config"],
+    dirs: [ File.dirname(node["goiardi"]["index_file"]),
+            File.dirname(node["goiardi"]["data_file"]),
+            node["goiardi"]["lfsdir"]
+    ].uniq
   )
   subscribes :restart, "template[#{node["goiardi"]["config"]}]"
 end

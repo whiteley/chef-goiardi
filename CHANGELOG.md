@@ -1,3 +1,7 @@
+# 0.3.5
+
+Ensure required runtime directories at start
+
 # 0.3.4
 
 README updates

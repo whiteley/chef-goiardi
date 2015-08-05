@@ -1,3 +1,6 @@
 #!/bin/sh
 exec 2>&1
+<% @options[:dirs].each do |dir| %>
+mkdir -p <%= dir %>
+<% end %>
 exec /usr/bin/goiardi -c <%= @options[:config] %>
