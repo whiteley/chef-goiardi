@@ -1,3 +1,7 @@
+# 0.3.7
+
+Fixed issue with state stored in tmpfs (thanks @ayanich)
+
 # 0.3.6
 
 Update Goiardi to 0.10.0
