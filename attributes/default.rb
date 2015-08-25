@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-default["goiardi"]["version"] = "0.9.2"
+default["goiardi"]["version"] = "0.10.0"
 default["goiardi"]["os"] = node["os"].downcase
 default["goiardi"]["arch"] = "amd64"
 default["goiardi"]["install_method"] = "binary"
