@@ -28,7 +28,7 @@ end
 
 include_recipe "goiardi::#{node["goiardi"]["install_method"]}"
 
-%w( lfsdir rundir ).each do |d|
+%w( lfsdir libdir rundir ).each do |d|
   directory node["goiardi"][d] do
     mode "0700"
     owner node["goiardi"]["user"]
