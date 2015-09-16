@@ -24,9 +24,10 @@ Installs and configures [Goiardi](http://goiardi.gl).
 * `["goiardi"]["repo"]` - Packagecloud repository
 * `["goiardi"]["confdir"]` - Goiardi configuration directory
 * `["goiardi"]["config"]` - Goiardi configuration file
-* `["goiardi"]["rundir"]` - Goiardi state directory
+* `["goiardi"]["rundir"]` - Goiardi run-time variable data directory
 * `["goiardi"]["index_file"]` - File to save search index data to
 * `["goiardi"]["data_file"]` - File to save data store data to
+* `["goiardi"]["libdir"]` - Goiardi state directory
 * `["goiardi"]["lfsdir"]` - Goiardi upload directory
 * `["goiardi"]["ipaddress"]` - Address to listen on
 * `["goiardi"]["port"]` - Port to listen on
