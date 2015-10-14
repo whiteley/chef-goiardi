@@ -1,3 +1,7 @@
+# 0.3.8
+
+Update packagecloud cookbook dependency
+
 # 0.3.7
 
 Fixed issue with state stored in tmpfs (thanks @ayanich)
