@@ -8,7 +8,7 @@ version          "0.3.7"
 
 depends "golang", "~> 1.5.1"
 depends "packagecloud", "~> 0.1.0"
-depends "runit", "~> 1.6.0"
+depends "runit", "~> 1.7.4"
 
 supports "ubuntu", ">= 12.04"
 supports "debian"
