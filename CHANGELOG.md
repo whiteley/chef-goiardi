@@ -1,3 +1,7 @@
+# 0.3.9
+
+New upstream release
+
 # 0.3.8
 
 Update packagecloud cookbook dependency
