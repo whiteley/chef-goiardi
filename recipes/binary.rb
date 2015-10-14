@@ -21,10 +21,3 @@ remote_file "/usr/bin/goiardi" do
   source node["goiardi"]["bin"]
   mode "0755"
 end
-
-directory node["goiardi"]["confdir"] do
-  mode "0755"
-  owner node["goiardi"]["user"]
-  group node["goiardi"]["group"]
-  recursive true
-end
