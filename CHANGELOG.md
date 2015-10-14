@@ -1,3 +1,11 @@
+# 0.3.8
+
+Update packagecloud and runit dependencies
+Sync to new upstream Goiardi release
+Fix serverspec SSL tests
+Remove redundant resource for confdir
+Stop mkdir for non tmpfs resources in runit script
+
 # 0.3.7
 
 Fixed issue with state stored in tmpfs (thanks @ayanich)
