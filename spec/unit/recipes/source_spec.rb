@@ -5,7 +5,7 @@ describe "goiardi::source" do
 
   before do
     go_bin_go = "/usr/local/go/bin/go"
-    stub_command("#{go_bin_go} version | grep \"go1.4 \"").and_return(true)
+    stub_command("#{go_bin_go} version | grep \"go1.5 \"").and_return(true)
   end
 
   it "installs goiardi" do
