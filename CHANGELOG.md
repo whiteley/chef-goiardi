@@ -1,3 +1,8 @@
+# 0.3.9
+
+Update golang dependencies
+Sync to new upstream Goiardi release
+
 # 0.3.8
 
 Update packagecloud and runit dependencies
