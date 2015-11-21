@@ -37,11 +37,31 @@ include_recipe "goiardi::#{node["goiardi"]["install_method"]}"
   end
 end
 
+ssl_cert = ""
+ssl_key = ""
+if node["goiardi"]["use_ssl"]
+  if node["goiardi"]["ssl_cert"] && node["goiardi"]["ssl_key"]
+    Chef::Log.warn "Storing SSL secrets in attributes is deprecated, consider" \
+      " using an encrypted data bag instead"
+
+    ssl_cert = node["goiardi"]["ssl_cert"]
+    ssl_key = node["goiardi"]["ssl_key"]
+  else
+    cert_data_bag = Chef::EncryptedDataBagItem.load(
+      node["goiardi"]["ssl_data_bag"],
+      node["goiardi"]["ssl_data_bag_item"]
+    )
+
+    ssl_cert = cert_data_bag["cert"]
+    ssl_key = cert_data_bag["key"]
+  end
+end
+
 file node["goiardi"]["ssl_cert_filename"] do
   mode "0444"
   owner "root"
   group node["goiardi"]["group"]
-  content node["goiardi"]["ssl_cert"]
+  content ssl_cert
   only_if { node["goiardi"]["use_ssl"] }
 end
 
@@ -49,7 +69,7 @@ file node["goiardi"]["ssl_key_filename"] do
   mode "0440"
   owner "root"
   group node["goiardi"]["group"]
-  content node["goiardi"]["ssl_key"]
+  content ssl_key
   only_if { node["goiardi"]["use_ssl"] }
 end
 

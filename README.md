@@ -47,8 +47,10 @@ the client
 
 ### SSL
 * `["goiardi"]["use_ssl"]` - Use SSL for connections
-* `["goiardi"]["ssl_cert"]` - SSL certificate data
-* `["goiardi"]["ssl_key"]` - SSL key data
+* `["goiardi"]["ssl_data_bag"]` - Data bag which contains the item to pull the SSL cert and key from
+* `["goiardi"]["ssl_data_bag_item"]` - Data bag item to pull the SSL cert and key from. If `ssl_cert` and `ssl_key` are set, those will be used instead of the data bag contents
+* `["goiardi"]["ssl_cert"]` - SSL certificate data, deprecated
+* `["goiardi"]["ssl_key"]` - SSL key data, deprecated
 * `["goiardi"]["ssl_cert_filename"]` - SSL certificate file
 * `["goiardi"]["ssl_key_filename"]` - SSL key file
 * `["goiardi"]["https_urls"]` - Use `https://` in URLs to server resources if
