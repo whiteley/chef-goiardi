@@ -44,6 +44,8 @@ default["goiardi"]["user"] = "goiardi"
 default["goiardi"]["group"] = "goiardi"
 
 default["goiardi"]["use_ssl"] = false
+default["goiardi"]["ssl_data_bag"] = "certificates"
+default["goiardi"]["ssl_data_bag_item"] = "goiardi"
 default["goiardi"]["ssl_cert"] = nil
 default["goiardi"]["ssl_key"] = nil
 default["goiardi"]["ssl_cert_filename"] = "#{node["goiardi"]["confdir"]}/cert.pem"
